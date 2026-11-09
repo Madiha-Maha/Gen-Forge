@@ -3,7 +3,7 @@
  * Runs on port 3000
  */
 
-import express, { Request, Response } from 'express';
+import express, { type Request, type Response } from 'express';
 import { createServer as createViteServer } from 'vite';
 import fs from 'fs';
 import path from 'path';
@@ -12,7 +12,7 @@ import { config } from './lib/config.ts';
 import { logger } from './lib/logger.ts';
 import { rateLimiter } from './lib/rate-limiter.ts';
 import { moderatePrompt, checkSafetyDisclaimers } from './lib/moderation.ts';
-import { streamLLM, ChatMessage } from './lib/llm/index.ts';
+import { streamLLM, type ChatMessage } from './lib/llm/index.ts';
 import { scanFiles } from './lib/scanner.ts';
 import { TEMPLATES } from './lib/templates.ts';
 
