@@ -1,0 +1,6 @@
+{
+  "name": "GenForge",
+  "description": "AI app builder and question-answering studio with a built-in code security reviewer. Describe an app, review the code before you trust it.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

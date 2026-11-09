@@ -1,0 +1,35 @@
+{
+  "model_name": "CodeBERT-Defect-v1",
+  "base_model": "microsoft/codebert-base",
+  "task": "Binary Vulnerability / Defect Classification",
+  "dataset": "CodeXGLUE Defect Detection (Devign / C functions)",
+  "evaluation_date": "2026-10-18",
+  "test_split_size": 2732,
+  "metrics": {
+    "precision": 0.648,
+    "recall": 0.683,
+    "f1": 0.665,
+    "roc_auc": 0.732,
+    "accuracy": 0.652
+  },
+  "confusion_matrix": {
+    "true_positives": 852,
+    "false_positives": 462,
+    "true_negatives": 928,
+    "false_negatives": 490
+  },
+  "training_config": {
+    "epochs": 5,
+    "learning_rate": "2e-5",
+    "batch_size": 32,
+    "precision": "fp16",
+    "loss_function": "Class-weighted Cross-Entropy",
+    "hardware": "Google Colab GPU (NVIDIA T4 / A100)"
+  },
+  "limitations": [
+    "Language Mismatch: Fine-tuned primarily on C functions from CodeXGLUE; JS/TS/Python predictions rely on cross-lingual representation and are not formally benchmarked.",
+    "Dual Direction Risk: Produces both false positives (benign code flagged) and false negatives (subtle security logic flaws missed).",
+    "Scope: Intended as an assistive automated second opinion, not a certification or audit guarantee.",
+    "Context Window: Truncates code inputs longer than 512 subword tokens."
+  ]
+}
